@@ -4,23 +4,32 @@ import CharacterCard from './CharacterCard';
 import SearchForm from './SearchForm';
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
 
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
 
     axios
       .get(`https://rickandmortyapi.com/api/character/`)
       .then(response => {
-        // console.log('response', response.data.results);
         setCharacters(response.data.results);
+        setSearchResults(response.data.results);
       })
       .catch(error => {
         console.log('error', error)
       })
   }, []);
+
+  useEffect(() => {
+    const results = characters.filter(character => {
+      return character.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setSearchResults(results);
+  }, [searchTerm]);
 
   if (!characters) {
     return <div>Looking for characters...</div>
@@ -28,15 +37,13 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <SearchForm CharactersForSearch={characters} />
+      <SearchForm setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
       <div>
-        {characters.map(character => {
-          // console.log(character.name);
+        {searchResults.map(character => {
           return (
             <CharacterCard CharacterData={character} key={character.id} />
           )
         })}
-
       </div>
     </section>
   );

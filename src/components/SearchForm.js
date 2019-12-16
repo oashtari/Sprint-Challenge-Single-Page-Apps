@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-export default function SearchForm({ CharactersForSearch }) {
-
-
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const [searchResults, setSearchResults] = useState({ CharactersForSearch });
-  console.log('test', CharactersForSearch)
-
-  useEffect(() => { }, [searchTerm]);
+export default function SearchForm({ searchTerm, setSearchTerm }) {
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
@@ -28,13 +20,6 @@ export default function SearchForm({ CharactersForSearch }) {
           value={searchTerm}
         />
       </form>
-      <div className="search_for">
-        {/* <ul>
-          {searchResults.map(character => {
-            return <li key={character}>{character}</li>
-          })}
-        </ul> */}
-      </div>
 
     </section>
   );
