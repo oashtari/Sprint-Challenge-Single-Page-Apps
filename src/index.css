@@ -37,3 +37,8 @@ main {
 header h1 {
   text-align: center;
 }
+
+.character_card {
+  border: 3px solid blue;
+  margin: 5px 0;
+}
