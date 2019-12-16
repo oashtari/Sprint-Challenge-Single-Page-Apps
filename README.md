@@ -25,9 +25,11 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
-- [ ]  Explain benefit(s) using `client-side routing`?
+- [x]  Explain benefit(s) using `client-side routing`?
 
 > Answer:
+
+Since client-side routing downloads all the data at once, when on a web page, it only needs to render the information that is necessary, so if you switch a page, it doesn't have to hit the server again, and can quickly render the already downloaded information to show a new page. Aside from the initial download, it simply feels like a faster experience for the user.
 
 ## Project Set Up
 
@@ -79,11 +81,11 @@ _Add 'Search by Name' feature._
 
 ### **Required best practices:**
 
-- [ ]  Consistent naming. Examples: variables, functions, Components, and file/folder organization.
-- [ ]  Consistent spacing. Examples: line breaks, around arguments and before/after functions.
-- [ ]  Consistent quotation usage.
-- [ ]  Spell-check.
-- [ ]  Schedule time to review, refine and reassess your work.
+- [x]  Consistent naming. Examples: variables, functions, Components, and file/folder organization.
+- [x]  Consistent spacing. Examples: line breaks, around arguments and before/after functions.
+- [x]  Consistent quotation usage.
+- [x]  Spell-check.
+- [x]  Schedule time to review, refine and reassess your work.
 
 It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
 
