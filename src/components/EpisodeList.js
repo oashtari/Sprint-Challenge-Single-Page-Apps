@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import LocationCard from './LocationCard';
+import EpisodeCard from './EpisodeCard';
 
-export default function LocationsList() {
+export default function EpisodeList() {
 
-    const [locations, setLocations] = useState([]);
+    const [episodes, setEpisodes] = useState([]);
 
     // const [searchTerm, setSearchTerm] = useState('');
 
@@ -13,10 +13,10 @@ export default function LocationsList() {
     useEffect(() => {
 
         axios
-            .get(`https://rickandmortyapi.com/api/location/`)
+            .get(`https://rickandmortyapi.com/api/episode/`)
             .then(response => {
                 console.log(response.data.results)
-                setLocations(response.data.results)
+                setEpisodes(response.data.results)
                 // setCharacters(response.data.results);
                 // setSearchResults(response.data.results);
             })
@@ -32,17 +32,16 @@ export default function LocationsList() {
     //     setSearchResults(results);
     // }, [searchTerm]);
 
-    if (!locations) {
+    if (!episodes) {
         return <div>Looking for locations...</div>
     }
 
     return (
-        <section className="location-list">
-            {/* <SearchForm setSearchTerm={setSearchTerm} searchTerm={searchTerm} /> */}
+        <section className="episode-list">
             <div>
-                {locations.map(location => {
+                {episodes.map(episode => {
                     return (
-                        <LocationCard LocationData={location} key={location.id} />
+                        <EpisodeCard EpisodeData={episode} key={episode.id} />
                     )
                 })}
             </div>
